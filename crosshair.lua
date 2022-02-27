@@ -1,34 +1,3 @@
--- Custom Crosshair by zzerexx#3970
-function msg(text,duration)
-    local hint = Instance.new("Hint",game.CoreGui)
-    hint.Text = text
-    wait(duration or 5)
-    hint:Destroy()
-end
-function UpdateScript()
-    local bind = Instance.new("BindableFunction")
-    function bind.OnInvoke(response)
-        if response == "Yes" then
-            if not setclipboard then
-                msg("https://pastebin.com/raw/eGiC2jPg")
-            end
-            setclipboard("https://pastebin.com/raw/eGiC2jPg")
-            game.StarterGui:SetCore("SendNotification",{
-                Title = "Custom Crosshair",
-                Text = "Copied the script to your clipboard!",
-                Duration = 5
-            })
-        end
-    end
-    game.StarterGui:SetCore("SendNotification",{
-        Title = "Custom Crosshair",
-        Text = "You are using an older version of Custom Crosshair. Would you like the latest version?",
-        Duration = 20,
-        Callback = bind,
-        Button1 = "Yes",
-        Button2 = "No"
-    })
-end
 local player = game:GetService("Players").LocalPlayer
 local camera = workspace.CurrentCamera
 local UIS = game:GetService("UserInputService")
