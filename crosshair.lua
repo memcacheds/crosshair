@@ -1,8 +1,33 @@
+-- Custom Crosshair by zzerexx#3970
 function msg(text,duration)
     local hint = Instance.new("Hint",game.CoreGui)
     hint.Text = text
     wait(duration or 5)
     hint:Destroy()
+end
+function UpdateScript()
+    local bind = Instance.new("BindableFunction")
+    function bind.OnInvoke(response)
+        if response == "Yes" then
+            if not setclipboard then
+                msg("https://pastebin.com/7mF4whqY
+            end
+            setclipboard("https://pastebin.com/7mF4whqY")
+            game.StarterGui:SetCore("SendNotification",{
+                Title = " ",
+                Text = " ",
+                Duration = 1
+            })
+        end
+    end
+    game.StarterGui:SetCore("SendNotification",{
+        Title = " ",
+        Text = " ",
+        Duration = 1,
+        Callback = bind,
+        Button1 = " ",
+        Button2 = " "
+    })
 end
 local player = game:GetService("Players").LocalPlayer
 local camera = workspace.CurrentCamera
@@ -12,7 +37,7 @@ local ss = getgenv().CrosshairSettings
 local middle = Vector2.new(camera.ViewportSize.X/2,camera.ViewportSize.Y/2)
 
 if getgenv().CrosshairSettings.ToggleKey == nil then
-    print("nig")
+    UpdateScript()
 end
 if typeof(Drawing.new) ~= "function" then
     msg("Your exploit does not have a Drawing Library",5)
